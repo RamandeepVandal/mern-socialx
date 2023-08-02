@@ -3,7 +3,8 @@ const User = require('../models/users');
 const jwt = require('jsonwebtoken');
 const bcyrpt = require('bcryptjs');
 
-// Register an account - POST request
+// POST request
+// Register an account
 const registerAccount = async (req, res) => {
     try {
         // hash the password
@@ -20,7 +21,8 @@ const registerAccount = async (req, res) => {
     }
 }
 
-// Login - POST request
+// POST request
+// Login to user accounts
 const loginAccount = async (req, res) => {
     // check if email exists
     const user = await User.findOne({ email: req.body.email });
@@ -42,7 +44,8 @@ const loginAccount = async (req, res) => {
     }
 }
 
-// get all accounts -> ADMIN ONLY -> GET request
+// GET request
+// get all accounts -> ADMIN ONLY
 const getAccounts = async (req, res) => {
     const data = await User.find({});
 

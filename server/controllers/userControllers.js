@@ -42,23 +42,6 @@ const loginAccount = async (req, res) => {
     }
 }
 
-// Verify if user exists -> used with the loginAccount function
-/*
-const verifyUser = async (req, res) => {
-    const token = req.header['x-access-token'];
-
-    try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        const email = decoded.email;
-        const user = await User.findOne({ email: email });
-        return res.json({ status: 'ok', name: user.name })
-    } catch (error) {
-        console.log(error);
-        return res.json({ status: 'error', error: 'Invalid token.' })
-    }
-}
-*/
-
 // get all accounts -> ADMIN ONLY -> GET request
 const getAccounts = async (req, res) => {
     const data = await User.find({});

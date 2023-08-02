@@ -14,7 +14,11 @@ const users = new mongoose.Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    productsPosted: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Product'
+    }]
 });
 
 module.exports = mongoose.model('User', users);

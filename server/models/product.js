@@ -13,6 +13,9 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    imageURL: {
+        type: String
+    },
     postUser: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',

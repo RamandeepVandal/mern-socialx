@@ -17,41 +17,41 @@ export const Header = () => {
   const routeRegister = () => navigate("/register");
   const routeAdd = () => navigate("/add");
 
-  // logout 
+  // logout
   const logout = () => {
-    setCookies('access_token', '');
-    window.localStorage.removeItem('userID');
-    navigate('/');
-  }
+    setCookies("access_token", "");
+    window.localStorage.removeItem("userID");
+    navigate("/");
+  };
 
   return (
     <Navbar collapseOnSelect expand="lg" variant="light">
       <Container>
-        <Navbar.Brand className="nav-brand fs-1" onClick={routeHome}>
-          SocialX
-        </Navbar.Brand>
+        <Navbar.Brand className="nav-brand fs-1">SocialX</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbar-responsive" />
         <Navbar.Collapse id="navbar-responsive">
-          <Nav className="ms-auto d-flex align-items-center">
-            <Nav.Link className="me-3 fs-4 nav-links" onClick={routeAdd}>
-              Add
-            </Nav.Link>
-            {!cookies.access_token ? (
-              <div className="d-flex">
-                <Nav.Link className="me-3 fs-4 nav-links" onClick={routeLogin}>
-                  Login
-                </Nav.Link>
-                <Nav.Link
-                  className="me-3 fs-4 nav-links"
-                  onClick={routeRegister}
-                >
-                  Register
-                </Nav.Link>
-              </div>
-            ) : (
-              <button className="btn btn-dark" onClick={logout}>Logout</button>
-            )}
-          </Nav>
+          {!cookies.access_token ? (
+            <Nav className="ms-auto d-flex align-items-center">
+              <Nav.Link className="me-3 fs-4 nav-links" onClick={routeLogin}>
+                Login
+              </Nav.Link>
+              <Nav.Link className="me-3 fs-4 nav-links" onClick={routeRegister}>
+                Register
+              </Nav.Link>
+            </Nav>
+          ) : (
+            <Nav className="ms-auto d-flex align-items-center">
+              <Nav.Link className="me-3 fs-4 nav-links" onClick={routeHome}>
+                Home
+              </Nav.Link>
+              <Nav.Link className="me-3 fs-4 nav-links" onClick={routeAdd}>
+                Add
+              </Nav.Link>
+              <button className="btn btn-dark" onClick={logout}>
+                Logout
+              </button>
+            </Nav>
+          )}
         </Navbar.Collapse>
       </Container>
     </Navbar>

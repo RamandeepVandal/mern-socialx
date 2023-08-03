@@ -32,4 +32,17 @@ const addProduct = async (req, res) => {
     res.status(200).json({ status: 'ok', product })
 }
 
-module.exports = { getAllProducts, addProduct };
+// GET 
+// get info on the user that posted the product
+const getProductUser = async(req, res) => {
+    const productData = await Product.findById(req.body.id);
+    
+    //console.log(productData);
+
+    // find the user that is linked to the product sale
+    const user = await User.findById(productData?.postUser);
+
+    res.status(200).json({user});
+}
+
+module.exports = { getAllProducts, addProduct, getProductUser };

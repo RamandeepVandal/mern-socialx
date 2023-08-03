@@ -16,7 +16,7 @@ export const AddProduct = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
-  const [imagePath, setImagePath] = useState("");
+  const [imageURL, setImageURL] = useState("");
   const [postUser, setPostUser] = useState(userID);
 
   // navigate
@@ -26,16 +26,16 @@ export const AddProduct = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    addProduct(title, description, price, imagePath, postUser);
+    addProduct(title, description, price, imageURL, postUser);
   };
 
   // add product
-  const addProduct = async (title, description, price, imagePath, postUser) => {
+  const addProduct = async (title, description, price, imageURL, postUser) => {
     await Axios.post("http://localhost:5000/products", {
       title,
       description,
       price,
-      imagePath,
+      imageURL,
       postUser
     }).then((res) => {
       if (res.data.status === "ok") {
@@ -101,8 +101,8 @@ export const AddProduct = () => {
                     id="image"
                     type="text"
                     className="form-control"
-                    value={imagePath}
-                    onChange={(e) => setImagePath(e.target.value)}
+                    value={imageURL}
+                    onChange={(e) => setImageURL(e.target.value)}
                   />
                 </div>
                 <button type="submit" className="btn btn-dark mt-3">

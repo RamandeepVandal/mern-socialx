@@ -50,7 +50,7 @@ export const Register = () => {
               <form className="card mt-3 p-5" onSubmit={onSubmit}>
                 <div className="form-group">
                   <label htmlFor="name" className="form-label">
-                    Name
+                    Username
                   </label>
                   <input
                     type="text"

@@ -1,6 +1,6 @@
 const express = require('express');
 const { registerAccount, getAccounts, loginAccount } = require('../controllers/userControllers');
-const { getAllProducts, addProduct } = require('../controllers/productControllers');
+const { getAllProducts, addProduct, getProductUser } = require('../controllers/productControllers');
 
 // create router
 const router = express.Router();
@@ -12,5 +12,6 @@ router.route('/login').post(loginAccount);
 
 // create the routes -> PRODUCTS
 router.route('/products').get(getAllProducts).post(addProduct);
+router.route('/product/user').post(getProductUser);
 
 module.exports = router;

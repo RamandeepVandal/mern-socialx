@@ -14,7 +14,8 @@ const productSchema = new mongoose.Schema({
         required: true
     },
     imageURL: {
-        type: String
+        type: String,
+        required: true
     },
     postUser: {
         type: mongoose.Schema.Types.ObjectId,

@@ -32,7 +32,7 @@ const addProduct = async (req, res) => {
     res.status(200).json({ status: 'ok', product })
 }
 
-// GET 
+// POST 
 // get info on the user that posted the product
 const getProductUser = async(req, res) => {
     const productData = await Product.findById(req.body.id);
@@ -45,4 +45,25 @@ const getProductUser = async(req, res) => {
     res.status(200).json({user});
 }
 
-module.exports = { getAllProducts, addProduct, getProductUser };
+// POST
+// get all the posts made by current user
+const getUserProducts = async(req, res) => {
+    const userID = await req.body.id;
+
+    // check if the id exists
+    if(!userID) {
+        res.status(400);
+        throw new Error('No such user exists.');
+    }
+
+    // check which products does the id correspond to in the products table
+    const products = await Product.find({postUser: userID});
+
+    if(!products) {
+        res.status(400).json({status: 'error', error: 'No products exist.'});
+    }
+
+    res.status(200).json(products);
+}
+
+module.exports = { getAllProducts, addProduct, getProductUser, getUserProducts };

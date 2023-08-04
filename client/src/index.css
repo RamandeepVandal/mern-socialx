@@ -68,4 +68,7 @@
   .post-title-price p {
     font-size: 16px;
   }
+  .post-btn {
+    margin-top: 1rem;
+  }
 }

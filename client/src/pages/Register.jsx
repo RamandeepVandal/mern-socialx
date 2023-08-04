@@ -14,6 +14,9 @@ export const Register = () => {
   // navigation
   const navigate = useNavigate();
 
+  // to the login page
+  const toLogin = () => navigate("/");
+
   // on form submit
   const onSubmit = (e) => {
     e.preventDefault();
@@ -84,7 +87,10 @@ export const Register = () => {
                 <button type="submit" className="btn btn-dark mt-3">
                   Register
                 </button>
-                <p className="text-center mt-2">
+                <p
+                  className="text-center mt-2 sign-in-up-link"
+                  onClick={toLogin}
+                >
                   Already have an account? Login here.
                 </p>
               </form>

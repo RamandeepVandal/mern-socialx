@@ -17,6 +17,10 @@ export const Post = ({ post }) => {
             <p>${post?.price}</p>
           </div>
           <p className="text-center">{post?.description}</p>
+          <div className="d-flex justify-content-between align-items-center post-title-price">
+            <button className="btn btn-danger btn-lg post-btn">Del</button>
+            <button className="btn btn-warning btn-lg post-btn">Edit</button>
+          </div>
         </div>
       </div>
     </div>

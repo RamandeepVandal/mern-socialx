@@ -16,6 +16,7 @@ export const Header = () => {
   const routeHome = () => navigate("/home");
   const routeRegister = () => navigate("/register");
   const routeAdd = () => navigate("/add");
+  const routePost = () => navigate('/posts');
 
   // logout
   const logout = () => {
@@ -46,6 +47,9 @@ export const Header = () => {
               </Nav.Link>
               <Nav.Link className="me-3 fs-4 nav-links" onClick={routeAdd}>
                 Add
+              </Nav.Link>
+              <Nav.Link className="me-3 fs-4 nav-links" onClick={routePost}>
+                Posts
               </Nav.Link>
               <button className="btn btn-dark" onClick={logout}>
                 Logout

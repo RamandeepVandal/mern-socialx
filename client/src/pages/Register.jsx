@@ -15,7 +15,7 @@ export const Register = () => {
   const navigate = useNavigate();
 
   // to the login page
-  const toLogin = () => navigate("/");
+  const toLogin = () => navigate("/login");
 
   // on form submit
   const onSubmit = (e) => {
@@ -41,7 +41,7 @@ export const Register = () => {
   };
 
   return (
-    <div className='page-text-style'>
+    <div className='page-text-style login-register'>
       <Header />
 
       <section className="d-flex flex-column justify-content-center align-items-center">

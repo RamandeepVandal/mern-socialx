@@ -49,7 +49,7 @@ export const Login = () => {
   };
 
   return (
-    <div className='page-text-style'>
+    <div className='page-text-style login-register'>
       <Header />
 
       <section className="d-flex flex-column justify-content-center align-items-center">

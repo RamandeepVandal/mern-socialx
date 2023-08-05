@@ -51,14 +51,14 @@ export const AddProduct = () => {
       <Header />
 
       <section className="d-flex flex-column justify-content-center align-items-center">
-        <h1>Add Product</h1>
+        <h1 className="page-text-style-h1">Add Product</h1>
 
         <div className="container">
           <div className="row">
             <div className="col-12 col-sm-12 col-md-12 col-lg-12">
               <form onSubmit={onSubmit} className="card mt-5 mb-5 p-5">
                 <div className="form-group">
-                  <label htmlFor="title" className="form-label">
+                  <label htmlFor="title" className="form-label page-text-style-p">
                     Title
                   </label>
                   <input
@@ -70,7 +70,7 @@ export const AddProduct = () => {
                   />
                 </div>
                 <div className="form-group mt-2">
-                  <label htmlFor="description" className="form-label">
+                  <label htmlFor="description" className="form-label page-text-style-p">
                     Description
                   </label>
                   <textarea
@@ -82,7 +82,7 @@ export const AddProduct = () => {
                   />
                 </div>
                 <div className="form-group mt-2">
-                  <label htmlFor="price" className="form-label">
+                  <label htmlFor="price" className="form-label page-text-style-p">
                     Price
                   </label>
                   <input
@@ -94,7 +94,7 @@ export const AddProduct = () => {
                   />
                 </div>
                 <div className="form-group mt-2">
-                  <label htmlFor="image" className="form-label">
+                  <label htmlFor="image" className="form-label page-text-style-p">
                     Image Url
                   </label>
                   <input
@@ -105,7 +105,7 @@ export const AddProduct = () => {
                     onChange={(e) => setImageURL(e.target.value)}
                   />
                 </div>
-                <button type="submit" className="btn btn-dark mt-3">
+                <button type="submit" className="btn btn-main mt-3">
                   Add
                 </button>
               </form>

@@ -41,18 +41,18 @@ export const Register = () => {
   };
 
   return (
-    <div>
+    <div className='page-text-style'>
       <Header />
 
       <section className="d-flex flex-column justify-content-center align-items-center">
-        <h1>Register</h1>
+        <h1 className="page-text-style-h1">Register</h1>
 
         <div className="container">
           <div className="row">
             <div className="col-12 col-sm-12 col-md-12 col-lg-12">
               <form className="card mt-3 p-5" onSubmit={onSubmit}>
                 <div className="form-group">
-                  <label htmlFor="name" className="form-label">
+                  <label htmlFor="name" className="form-label page-text-style-p">
                     Username
                   </label>
                   <input
@@ -63,7 +63,7 @@ export const Register = () => {
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="email" className="form-label">
+                  <label htmlFor="email" className="form-label page-text-style-p">
                     Email
                   </label>
                   <input
@@ -74,7 +74,7 @@ export const Register = () => {
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="password" className="form-label">
+                  <label htmlFor="password" className="form-label page-text-style-p">
                     Password
                   </label>
                   <input
@@ -84,7 +84,7 @@ export const Register = () => {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
-                <button type="submit" className="btn btn-dark mt-3">
+                <button type="submit" className="btn btn-main mt-3">
                   Register
                 </button>
                 <p

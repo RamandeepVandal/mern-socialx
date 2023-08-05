@@ -43,11 +43,11 @@ export const Home = () => {
   };
 
   return (
-    <div>
+    <div className='page-text-style'>
       <Header />
 
       <section className="d-flex flex-column justify-content-center align-items-center p-5 m-5">
-        <h1 className="mb-3">Products</h1>
+        <h1 className="mb-3 page-text-style-h1">Products</h1>
 
         <Products products={products} showUser={showUser} />
       </section>

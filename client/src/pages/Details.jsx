@@ -15,13 +15,13 @@ export const Details = () => {
   const backToHome = () => navigate("/home");
 
   return (
-    <div>
+    <div className='page-text-style'>
       <Header />
       <section className="d-flex justify-content-center align-items-center mt-5">
         <div className="container">
           <div className="d-flex justify-content-evenly align-items-center">
-            <h1>Details</h1>
-            <button onClick={backToHome} className="btn btn-dark">
+            <h1 className="page-text-style-h1">Details</h1>
+            <button onClick={backToHome} className="btn btn-main">
               Back
             </button>
             {console.log(itemInfo)}
@@ -32,10 +32,10 @@ export const Details = () => {
               <div className="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div className="card p-5 m-5 main-product-card">
                   <div className="d-flex justify-content-between align-items-center product-name-contact">
-                    <h1>{itemInfo?.product.title}</h1>
+                    <h1 className="page-text-style-h1">{itemInfo?.product.title}</h1>
                     <a
                       href={`mailto:${itemInfo?.userInfo.email}`}
-                      className="fs-3"
+                      className="fs-3 page-text-style-p"
                     >
                       Contact
                     </a>
@@ -48,8 +48,8 @@ export const Details = () => {
                       className="img-fluid card-img-top product-img"
                     />
                     <div className="p-5 product-details">
-                      <p className="fs-3">Price: ${itemInfo?.product.price}</p>
-                      <p className="fs-5">
+                      <p className="fs-3 page-text-style-p">Price: ${itemInfo?.product.price}</p>
+                      <p className="fs-5 page-text-style-p">
                         {itemInfo?.product.description}
                       </p>
                     </div>

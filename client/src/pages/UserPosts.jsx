@@ -34,18 +34,18 @@ export const UserPosts = () => {
   const addPost = () => navigate('/add');
 
   return (
-    <div>
+    <div className='page-text-style'>
       <Header />
 
       <section className="d-flex flex-column justify-content-center align-items-center p-5 m-5">
-        <h1 className="mb-3">Posts</h1>
+        <h1 className="mb-3 page-text-style-h1">Posts</h1>
 
         {posts.length > 0 ? (
           <Posts posts={posts} />
         ) : (
           <div className="card mt-3 p-5">
-            <p className="fs-2">No posts to show. </p>
-            <button onClick={addPost} className="btn btn-dark fs-3">Create Posts</button>
+            <p className="fs-2 page-text-style-h1">No posts to show. </p>
+            <button onClick={addPost} className="btn btn-main fs-3">Create Posts</button>
           </div>
         )}
       </section>

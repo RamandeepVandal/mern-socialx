@@ -33,7 +33,6 @@ body {
 
 svg {
   fill: var(--primary-button-2);
-
   transition: 0.5s ease-in-out;
 }
 
@@ -43,6 +42,7 @@ svg:hover {
 
 .page-text-style-h1 {
   color: var(--primary-headline);
+  font-weight: bold;
 }
 
 .page-text-style-p {
@@ -58,6 +58,54 @@ svg:hover {
 
 .sign-in-up-link:hover {
   color: blue;
+}
+
+.login-register {
+  min-height: 100vh;
+  background-image: url('./assets/login-register.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* LANDINGPAGE.JSX */
+.primary {
+  min-height: 100vh;
+  background-image: url('./assets/landing-page-bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 0.1em
+}
+
+.promo {
+  min-height: 50vh;
+}
+
+.card-landing-page {
+  background: none;
+  border: none;
+}
+
+.card-landing-page-quote {
+  background-color: var(--primary-bg);
+  border-top: 0.5px solid var(--primary-headline);
+  border-bottom: 0.5px solid var(--primary-headline);
+  border-left: none;
+  border-right: none;
+}
+
+.quotes-landing {
+  min-height: 50vh;
+}
+
+.footer {
+  min-height: 50vh;
+  background-image: url('./assets/footer-nre-bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.company-links {
+  cursor: pointer;
 }
 
 /* HEADER.JSX */

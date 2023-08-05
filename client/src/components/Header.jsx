@@ -12,7 +12,8 @@ export const Header = () => {
 
   // navigation
   const navigate = useNavigate();
-  const routeLogin = () => navigate("/");
+  const routeLandingPage = () => navigate('/');
+  const routeLogin = () => navigate("/login");
   const routeHome = () => navigate("/home");
   const routeRegister = () => navigate("/register");
   const routeAdd = () => navigate("/add");
@@ -28,7 +29,7 @@ export const Header = () => {
   return (
     <Navbar collapseOnSelect expand="lg" variant="light">
       <Container>
-        <Navbar.Brand className="nav-links fs-1 page-text-style-h1">SocialX</Navbar.Brand>
+        <Navbar.Brand className="nav-links fs-1 page-text-style-h1" onClick={routeLandingPage}>SocialX</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbar-responsive" />
         <Navbar.Collapse id="navbar-responsive">
           {!cookies.access_token ? (

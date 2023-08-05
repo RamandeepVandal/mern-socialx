@@ -9,12 +9,14 @@ import { Register } from "./pages/Register";
 import { AddProduct } from "./pages/AddProduct";
 import { Details } from "./pages/Details";
 import { UserPosts } from "./pages/UserPosts";
+import { LandingPage } from "./pages/LandingPage";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/add" element={<AddProduct />} />

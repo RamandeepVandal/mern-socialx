@@ -28,30 +28,30 @@ export const Header = () => {
   return (
     <Navbar collapseOnSelect expand="lg" variant="light">
       <Container>
-        <Navbar.Brand className="nav-brand fs-1">SocialX</Navbar.Brand>
+        <Navbar.Brand className="nav-links fs-1 page-text-style-h1">SocialX</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbar-responsive" />
         <Navbar.Collapse id="navbar-responsive">
           {!cookies.access_token ? (
             <Nav className="ms-auto d-flex align-items-center">
-              <Nav.Link className="me-3 fs-4 nav-links" onClick={routeLogin}>
+              <Nav.Link className="me-3 fs-4 nav-links page-text-style-h1" onClick={routeLogin}>
                 Login
               </Nav.Link>
-              <Nav.Link className="me-3 fs-4 nav-links" onClick={routeRegister}>
+              <Nav.Link className="me-3 fs-4 nav-links page-text-style-h1" onClick={routeRegister}>
                 Register
               </Nav.Link>
             </Nav>
           ) : (
             <Nav className="ms-auto d-flex align-items-center">
-              <Nav.Link className="me-3 fs-4 nav-links" onClick={routeHome}>
+              <Nav.Link className="me-3 fs-4 nav-links page-text-style-h1" onClick={routeHome}>
                 Home
               </Nav.Link>
-              <Nav.Link className="me-3 fs-4 nav-links" onClick={routeAdd}>
+              <Nav.Link className="me-3 fs-4 nav-links page-text-style-h1" onClick={routeAdd}>
                 Add
               </Nav.Link>
-              <Nav.Link className="me-3 fs-4 nav-links" onClick={routePost}>
+              <Nav.Link className="me-3 fs-4 nav-links page-text-style-h1" onClick={routePost}>
                 Posts
               </Nav.Link>
-              <button className="btn btn-dark" onClick={logout}>
+              <button className="btn btn-main btn-md" onClick={logout}>
                 Logout
               </button>
             </Nav>

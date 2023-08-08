@@ -9,6 +9,7 @@ export const Post = ({ post, deletePosts }) => {
     title: post?.title,
     description: post?.description,
     price: post?.price,
+    goodType: post?.goodType,
     imageURL: post?.imageURL,
   };
 
@@ -17,8 +18,8 @@ export const Post = ({ post, deletePosts }) => {
   const toEdit = (data) => navigate("/edit", { state: { data } });
 
   return (
-    <div className="col-12 col-sm-12 col-md-12 col-lg-6 d-flex align-items-stretch">
-      <div className="card p-3 m-3 product-promo-card">
+    <div className="col-12 col-sm-12 col-md-12 col-lg-6 mt-3 mb-3">
+      <div className="card p-3 m-3 product-promo-card h-100 w-100">
         <div className="card-body mx-auto">
           <img
             src={post?.imageURL}

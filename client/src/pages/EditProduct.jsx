@@ -18,10 +18,15 @@ export const EditProduct = () => {
   // user data
   const [id, setID] = useState(location?.state?.data?.id);
   const [title, setTitle] = useState(location?.state?.data?.title);
-  const [description, setDescription] = useState(location?.state?.data?.description);
+  const [description, setDescription] = useState(
+    location?.state?.data?.description
+  );
   const [price, setPrice] = useState(location?.state?.data?.price);
   const [imageURL, setImageURL] = useState(location?.state?.data?.imageURL);
+  const [goodType, setGoodType] = useState(location?.state?.data?.goodType);
   const [postUser, setPostUser] = useState(userID);
+
+    console.log(location?.state?.data); 
 
   // navigate
   const navigate = useNavigate();
@@ -30,16 +35,25 @@ export const EditProduct = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    editProduct(id, title, description, price, imageURL, postUser);
+    editProduct(id, title, description, price, imageURL, goodType, postUser);
   };
 
   // add product
-  const editProduct = async (id, title, description, price, imageURL, postUser) => {
+  const editProduct = async (
+    id,
+    title,
+    description,
+    price,
+    imageURL,
+    goodType,
+    postUser
+  ) => {
     await Axios.put(`http://localhost:5000/user/post/${id}`, {
       title,
       description,
       price,
       imageURL,
+      goodType,
       postUser,
     }).then((res) => {
       if (res.data.status === "ok") {
@@ -120,6 +134,33 @@ export const EditProduct = () => {
                     value={imageURL}
                     onChange={(e) => setImageURL(e.target.value)}
                   />
+                </div>
+                <div className="form-group mt-2">
+                  <label
+                    htmlFor="goods"
+                    className="form-label page-text-style-p"
+                  >
+                    Type of Good
+                  </label>
+                  <select
+                    class="form-select"
+                    onChange={(e) => setGoodType(e.target.value)}
+                  >
+                    <option value={goodType}>{goodType}</option>
+                    <option value="Computer">
+                      Computers, Tablets & Accessories
+                    </option>
+                    <option value="Phone">Cell Phones and Accessories</option>
+                    <option value="Office">Office Supplies & Ink</option>
+                    <option value="TV">TV & Home Theatre</option>
+                    <option value="Headphone">
+                      Headphones, Speakers & Audio
+                    </option>
+                    <option value="Videogame">Video Games & VR</option>
+                    <option value="Cars">Cars, Trucks & Vans</option>
+                    <option value="Clothing">Clothing</option>
+                    <option value="Camera">Cameras, Camcorders & Drones</option>
+                  </select>
                 </div>
                 <button type="submit" className="btn btn-main mt-3">
                   Edit

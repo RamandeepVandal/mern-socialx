@@ -1,6 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
+// navigate
+import { useNavigate } from "react-router-dom";
 
-export const Post = ({ post }) => {
+export const Post = ({ post, deletePosts }) => {
+  // new post object
+  const postData = {
+    id: post?._id,
+    title: post?.title,
+    description: post?.description,
+    price: post?.price,
+    imageURL: post?.imageURL,
+  };
+
+  // navigate to the edit page
+  const navigate = useNavigate();
+  const toEdit = (data) => navigate("/edit", { state: { data } });
+
   return (
     <div className="col-12 col-sm-12 col-md-12 col-lg-6 d-flex align-items-stretch">
       <div className="card p-3 m-3 product-promo-card">
@@ -18,7 +33,7 @@ export const Post = ({ post }) => {
           </div>
           <p className="text-center page-text-style-p">{post?.description}</p>
           <div className="d-flex justify-content-between align-items-center post-title-price">
-            <button className="btn">
+            <button className="btn" onClick={() => deletePosts(post?._id)}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="30"
@@ -30,7 +45,7 @@ export const Post = ({ post }) => {
                 <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z" />
               </svg>
             </button>
-            <button className="btn">
+            <button className="btn" onClick={() => toEdit(postData)}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="30"

@@ -51,6 +51,9 @@ export const Details = () => {
                       <p className="fs-5 page-text-style-p">
                         {itemInfo?.product.description}
                       </p>
+                      <p className="fs-5 page-text-style-p">
+                        Posted by {itemInfo?.userInfo.name}
+                      </p>
                     </div>
                   </div>
                 </div>

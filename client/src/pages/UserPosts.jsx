@@ -29,23 +29,37 @@ export const UserPosts = () => {
     });
   };
 
+  // delete posts
+  const deletePosts = async (id) => {
+    try {
+      await Axios.delete(`http://localhost:5000/user/post/${id}`);
+
+      // filter state
+      setPosts((posts) => posts.filter((post) => post._id !== id));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   // navigation
   const navigate = useNavigate();
-  const addPost = () => navigate('/add');
+  const addPost = () => navigate("/add");
 
   return (
-    <div className='page-text-style'>
+    <div className="page-text-style">
       <Header />
 
       <section className="d-flex flex-column justify-content-center align-items-center p-5 m-5">
         <h1 className="mb-3 page-text-style-h1">Posts</h1>
 
         {posts.length > 0 ? (
-          <Posts posts={posts} />
+          <Posts posts={posts} deletePosts={deletePosts} />
         ) : (
           <div className="card mt-3 p-5">
             <p className="fs-2 page-text-style-h1">No posts to show. </p>
-            <button onClick={addPost} className="btn btn-main fs-3">Create Posts</button>
+            <button onClick={addPost} className="btn btn-main fs-3">
+              Create Posts
+            </button>
           </div>
         )}
       </section>

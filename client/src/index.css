@@ -49,6 +49,13 @@ svg:hover {
   color: var(--primary-paragraph);
 }
 
+select:before { 
+  display: none;
+}
+select:after {
+  display: none;
+}
+
 /* LOGIN/REGISTER.JSX */
 .sign-in-up-link {
   cursor: pointer;
@@ -70,6 +77,11 @@ svg:hover {
 }
 
 .form-control:focus {
+  border-color: var(--primary-button-highlight);
+  box-shadow: 0 0 0 0.2rem var(--primary-button-highlight);
+}
+
+.form-select:focus {
   border-color: var(--primary-button-highlight);
   box-shadow: 0 0 0 0.2rem var(--primary-button-highlight);
 }

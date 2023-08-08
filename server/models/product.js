@@ -17,6 +17,10 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    goodType: {
+        type: String,
+        required: true
+    },
     postUser: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',

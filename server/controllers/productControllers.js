@@ -34,36 +34,69 @@ const addProduct = async (req, res) => {
 
 // POST 
 // get info on the user that posted the product
-const getProductUser = async(req, res) => {
+const getProductUser = async (req, res) => {
     const productData = await Product.findById(req.body.id);
-    
+
     //console.log(productData);
 
     // find the user that is linked to the product sale
     const user = await User.findById(productData?.postUser);
 
-    res.status(200).json({user});
+    res.status(200).json({ user });
 }
 
 // POST
 // get all the posts made by current user
-const getUserProducts = async(req, res) => {
+const getUserProducts = async (req, res) => {
     const userID = await req.body.id;
 
     // check if the id exists
-    if(!userID) {
+    if (!userID) {
         res.status(400);
         throw new Error('No such user exists.');
     }
 
     // check which products does the id correspond to in the products table
-    const products = await Product.find({postUser: userID});
+    const products = await Product.find({ postUser: userID });
 
-    if(!products) {
-        res.status(400).json({status: 'error', error: 'No products exist.'});
+    if (!products) {
+        res.status(400).json({ status: 'error', error: 'No products exist.' });
     }
 
     res.status(200).json(products);
 }
 
-module.exports = { getAllProducts, addProduct, getProductUser, getUserProducts };
+// DELETE
+// remove an user post
+const deletePost = async (req, res) => {
+    const id = await req.params.id;
+
+    if (!id) {
+        res.status(400);
+        throw new Error('No post exists.');
+    }
+
+    await Product.findByIdAndDelete(id);
+    res.status(200).json({ status: 'ok', message: 'Post deleted!' });
+}
+
+// PUT
+// edit an user post
+const updatePost = async (req, res) => {
+    const id = await req.params.id;
+    const data = await req.body;
+
+    if (!id) {
+        res.status(400);
+        throw new Error('No post exists.');
+    }
+
+    if (!data) {
+        res.status(400).json({ status: 'error', error: 'Please fill out all fields.' });
+    }
+
+    await Product.findByIdAndUpdate(id, data);
+    res.status(200).json({ status: 'ok', message: 'Post updated!' });
+}
+
+module.exports = { getAllProducts, addProduct, getProductUser, getUserProducts, deletePost, updatePost };

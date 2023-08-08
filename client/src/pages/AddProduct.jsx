@@ -17,6 +17,7 @@ export const AddProduct = () => {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [imageURL, setImageURL] = useState("");
+  const [goodType, setGoodType] = useState("");
   const [postUser, setPostUser] = useState(userID);
 
   // navigate
@@ -26,17 +27,25 @@ export const AddProduct = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    addProduct(title, description, price, imageURL, postUser);
+    addProduct(title, description, price, imageURL, goodType, postUser);
   };
 
   // add product
-  const addProduct = async (title, description, price, imageURL, postUser) => {
+  const addProduct = async (
+    title,
+    description,
+    price,
+    imageURL,
+    goodType,
+    postUser
+  ) => {
     await Axios.post("http://localhost:5000/products", {
       title,
       description,
       price,
       imageURL,
-      postUser
+      goodType,
+      postUser,
     }).then((res) => {
       if (res.data.status === "ok") {
         navigate("/home");
@@ -58,7 +67,10 @@ export const AddProduct = () => {
             <div className="col-12 col-sm-12 col-md-12 col-lg-12">
               <form onSubmit={onSubmit} className="card mt-5 mb-5 p-5">
                 <div className="form-group">
-                  <label htmlFor="title" className="form-label page-text-style-p">
+                  <label
+                    htmlFor="title"
+                    className="form-label page-text-style-p"
+                  >
                     Title
                   </label>
                   <input
@@ -70,7 +82,10 @@ export const AddProduct = () => {
                   />
                 </div>
                 <div className="form-group mt-2">
-                  <label htmlFor="description" className="form-label page-text-style-p">
+                  <label
+                    htmlFor="description"
+                    className="form-label page-text-style-p"
+                  >
                     Description
                   </label>
                   <textarea
@@ -82,7 +97,10 @@ export const AddProduct = () => {
                   />
                 </div>
                 <div className="form-group mt-2">
-                  <label htmlFor="price" className="form-label page-text-style-p">
+                  <label
+                    htmlFor="price"
+                    className="form-label page-text-style-p"
+                  >
                     Price
                   </label>
                   <input
@@ -94,7 +112,10 @@ export const AddProduct = () => {
                   />
                 </div>
                 <div className="form-group mt-2">
-                  <label htmlFor="image" className="form-label page-text-style-p">
+                  <label
+                    htmlFor="image"
+                    className="form-label page-text-style-p"
+                  >
                     Image Url
                   </label>
                   <input
@@ -104,6 +125,32 @@ export const AddProduct = () => {
                     value={imageURL}
                     onChange={(e) => setImageURL(e.target.value)}
                   />
+                </div>
+                <div className="form-group mt-2">
+                  <label
+                    htmlFor="goods"
+                    className="form-label page-text-style-p"
+                  >
+                    Type of Good
+                  </label>
+                  <select
+                    class="form-select"
+                    onChange={(e) => setGoodType(e.target.value)}
+                  >
+                    <option value="Computer">
+                      Computers, Tablets & Accessories
+                    </option>
+                    <option value="Phone">Cell Phones and Accessories</option>
+                    <option value="Office">Office Supplies & Ink</option>
+                    <option value="TV">TV & Home Theatre</option>
+                    <option value="Headphone">
+                      Headphones, Speakers & Audio
+                    </option>
+                    <option value="Videogame">Video Games & VR</option>
+                    <option value="Cars">Cars, Trucks & Vans</option>
+                    <option value="Clothing">Clothing</option>
+                    <option value="Camera">Cameras, Camcorders & Drones</option>
+                  </select>
                 </div>
                 <button type="submit" className="btn btn-main mt-3">
                   Add

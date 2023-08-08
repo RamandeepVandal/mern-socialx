@@ -24,7 +24,6 @@ export const Details = () => {
             <button onClick={backToHome} className="btn btn-main">
               Back
             </button>
-            {console.log(itemInfo)}
           </div>
 
           <div className="container">

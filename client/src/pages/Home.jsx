@@ -21,7 +21,6 @@ export const Home = () => {
     const data = await res.json();
 
     setProducts(data);
-    console.log(data);
   };
 
   // navigation
@@ -32,8 +31,6 @@ export const Home = () => {
 
   // show user
   const showUser = async (id, product) => {
-    console.log(id);
-
     await Axios.post("http://localhost:5000/product/user/", {
       id,
     }).then((res) => {
@@ -43,7 +40,7 @@ export const Home = () => {
   };
 
   return (
-    <div className='page-text-style'>
+    <div className="page-text-style">
       <Header />
 
       <section className="d-flex flex-column justify-content-center align-items-center p-5 m-5">
